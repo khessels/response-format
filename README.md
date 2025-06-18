@@ -1,4 +1,6 @@
 # response-format
+Enrich the response & adding passthrough data for remote async operations.
+
 API ROUTE:
 Route::get( 'profile', [ UserController::class, 'profile'])->middleware( 'ResponseFormat:default, passthrough');
 
