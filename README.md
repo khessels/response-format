@@ -1,6 +1,24 @@
 # response-format
 API ROUTE:
-Route::get( 'example', [ SubjectController::class, 'hello'])->middleware( 'ResponseFormat:default, passthrough');
+Route::get( 'profile', [ UserController::class, 'profile'])->middleware( 'ResponseFormat:default, passthrough');
 
-options:
+Options:
 ResponseFormat:default or none 
+
+Usage: 
+class SubjectController extends Controller
+{
+    public function profile(){
+        $user = Auth::user();
+        return $user;
+    }
+    public function hello(Request $request)
+    {
+        try {
+            return response()->json( $request->all());
+        } catch (\Exception $e) {
+            // dontforgettolog            
+            return response( $e->getMessage(), 400);
+        }
+    }
+}
