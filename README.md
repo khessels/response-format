@@ -24,4 +24,5 @@ class SubjectController extends Controller
 }
 
 Note:
-the response format can also be overridden by a "X-Response-Format" header in the request with the value of 'default' or 'none'
+the default response format can also be overridden by a "X-Response-Format" header in the request with the value of 'default' or 'none'
+the default response passthrough can also be overridden by a "X-Response-Passthrough" header in the request with the value of true 
