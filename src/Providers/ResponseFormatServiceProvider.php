@@ -16,9 +16,9 @@ class ResponseFormatServiceProvider extends ServiceProvider
         $router->aliasMiddleware('ResponseFormat', ResponseFormat::class);
 
         // Publish config
-        $this->publishes([
-            __DIR__ . '/../../config/config.php' => config_path('response-format.php'),
-        ]);
+        // $this->publishes([
+        //     __DIR__ . '/../../config/config.php' => config_path('response-format.php'),
+        // ]);
     }
 
     public function register()
