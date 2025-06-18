@@ -1,12 +1,12 @@
 <?php
 
-namespace khessels\ResponseFormat\Providers;
+namespace khessels\responseformat\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Contracts\Http\Kernel;
-use khessels\ResponseFormat\Middleware\ResponseFormat;
+use khessels\responseformat\Middleware\ResponseFormat;
 
 class ResponseFormatServiceProvider extends ServiceProvider
 {

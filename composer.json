@@ -18,7 +18,7 @@
 
     "minimum-stability": "dev",
         "require": {
-        "php": "^8.4",
+        "php": "^8.0",
         "illuminate/support": "^12.17"
     },
     "prefer-stable": true,
@@ -30,8 +30,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "khessels\\cms\\Providers\\ContentManagementServiceProvider",
-                "khessels\\cms\\Providers\\BladeDirectivesServiceProvider"
+                "khessels\\cms\\Providers\\ResponseFormatServiceProvider"
             ]
         }
     }
