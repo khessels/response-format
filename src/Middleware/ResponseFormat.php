@@ -113,9 +113,9 @@ class ResponseFormat
     public function handle(Request $request, Closure $next, $format = 'default', $passthrough = null): Response
     {
         //return $next( $request);
-        if( ! empty( $request->headers->get('X-Response-Format'))){
-            $format = $request->headers->get('X-Response-Format');
-        }
+        $format = empty( $request->headers->get('X-Response-Format') ) ? $format : $request->headers->get('X-Response-Format');
+        $format = empty( $request->headers->get('X-Response-Passthrough') ) ? $passthrough : $request->headers->get('X-Response-Passthrough');
+
         // execute controller
         $response = $next( $request);
 
