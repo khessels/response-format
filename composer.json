@@ -1,7 +1,7 @@
 {
-    "name": "khessels/cms",
+    "name": "khessels/responseformat",
     "version":"1.0.0",
-    "description": "Integrate your laravel project with cms",
+    "description": "unified response format for api responses",
     "type": "library",
     "autoload": {
         "psr-4": {
@@ -30,7 +30,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "khessels\\cms\\Providers\\ResponseFormatServiceProvider"
+                "khessels\\responseformat\\Providers\\ResponseFormatServiceProvider"
             ]
         }
     }
