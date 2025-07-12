@@ -10,6 +10,7 @@ return response("a string") // property 'data' contains string, datatype = 'text
 return response({ 'test' : '}) // property 'data' contains object, datatype = 'application/json', status = 200
 
 
+
 Options:
 ResponseFormat:default (or none)
 passthrough (adds the request parms to the response output)
