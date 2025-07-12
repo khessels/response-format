@@ -1,5 +1,5 @@
 {
-    "name": "khessels/responseformat",
+    "name": "khessels/response-format",
     "version":"1.0.0",
     "description": "unified response format for api responses",
     "type": "library",
