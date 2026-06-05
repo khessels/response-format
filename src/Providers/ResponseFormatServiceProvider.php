@@ -14,6 +14,7 @@ class ResponseFormatServiceProvider extends ServiceProvider
     {
         // Optional: Register routes, views, etc.
         $router->aliasMiddleware('ResponseFormat', ResponseFormat::class);
+        $router->aliasMiddleware('response-format', ResponseFormat::class);
 
         // Publish config
         // $this->publishes([
