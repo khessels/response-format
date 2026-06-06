@@ -15,6 +15,14 @@ class ResponseFormat
             if( in_array($contentType, [ 'text/html', 'text/plain'])){
                 $data = $response->getContent();
                 $obj = ['data' => $data, 'data-type' => $contentType, 'status' => $response->getStatusCode()];
+                if( ! empty( $data->message)){
+                    $obj['message'] = $data->message;
+                    unset( $data->message);
+                }
+                if( ! empty( $data->success)){
+                    $obj['success'] = $data->success;
+                    unset( $data->success);
+                }
                 if( ! empty( $passthrough)){
                     if( in_array( $request->headers->get('Content-Type'), ['text/plain', 'text/html'])){
                         $obj['passthrough']['data'] = $request->getContent();
@@ -24,12 +32,25 @@ class ResponseFormat
                     $obj['passthrough']['data-type'] = $request->headers->get('Content-Type');
                     $obj['passthrough']['headers'] = $request->headers->all();
                 }
+                if (empty((array) $data)) {
+                    unset($obj['data']);
+                    unset($obj['data-type']);
+                }
                 $response->setContent( $obj);
                 return $response;
             }
             if( in_array($contentType, [ 'application/json', 'application/xml'])){
                 $data = $response->getdata();
                 $obj = ['data' => $data, 'data-type' => $contentType, 'status' => $response->getStatusCode()];
+                if( ! empty( $data->message)){
+                    $obj['message'] = $data->message;
+                    unset( $data->message);
+                }
+                if( ! empty( $data->success)){
+                    $obj['success'] = $data->success;
+                    unset( $data->success);
+                }
+
                 if( ! empty( $passthrough)){
                     if( in_array( $request->headers->get('Content-Type'), ['text/plain', 'text/html'])){
                         $obj['passthrough']['data'] = $request->getContent();
@@ -38,6 +59,10 @@ class ResponseFormat
                     }
                     $obj['passthrough']['data-type'] = $request->headers->get('Content-Type');
                     $obj['passthrough']['headers'] = $request->headers->all();
+                }
+                if (empty((array) $data)) {
+                    unset($obj['data']);
+                    unset($obj['data-type']);
                 }
                 $response->setData( $obj);
                 return $response;
