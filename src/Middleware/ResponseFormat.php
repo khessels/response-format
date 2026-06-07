@@ -138,8 +138,10 @@ class ResponseFormat
     public function handle(Request $request, Closure $next, $format = 'default', $passthrough = null): Response
     {
         //return $next( $request);
-        $format = empty( $request->headers->get('X-Response-Format') ) ? $format : $request->headers->get('X-Response-Format');
-        $passthrough = empty( $request->headers->get('X-Response-Passthrough') ) ? $passthrough : $request->headers->get('X-Response-Passthrough');
+        $input = array_change_key_case($request->all(), CASE_LOWER);
+
+        $format = empty( $input['x-response-format']) ? $format : $input['x-response-format'];
+        $passthrough = empty( $input['x-response-passthrough']) ? $passthrough : $input['x-response-passthrough'];
 
         // execute controller
         $response = $next( $request);
