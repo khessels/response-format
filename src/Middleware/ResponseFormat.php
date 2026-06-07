@@ -138,7 +138,7 @@ class ResponseFormat
     public function handle(Request $request, Closure $next, $format = 'default', $passthrough = null): Response
     {
         //return $next( $request);
-        $input = array_change_key_case($request->all(), CASE_LOWER);
+        $input = array_change_key_case($request->headers->all(), CASE_LOWER);
 
         $format = empty( $input['x-response-format']) ? $format : $input['x-response-format'];
         $passthrough = empty( $input['x-response-passthrough']) ? $passthrough : $input['x-response-passthrough'];
